@@ -10,8 +10,34 @@
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-            
-        </StackPanel>
+            <StackPanel HorizontalAlignment="Left">
+                <TextBlock>Nome</TextBlock>
+                <TextBox Width="300" Margin="0,10,0,0"></TextBox>
+                <TextBlock>E-mail</TextBlock>
+                <TextBox Width="300" Margin="0,10,0,0"></TextBox>
+                <TextBlock>Senha</TextBlock>
+                <PasswordBox Width="300" Margin="0,10,0,0"></PasswordBox>
+                <RadioButton Content="Masculino" x:Name="M" Margin="0,10,0,0"/>
+                <RadioButton Content="Feminino" x:Name="F"/>
+                <TextBlock x:Name="dataNascimentoLabel">Data de Nascimento</TextBlock>
+                <DatePicker x:Name="dataNascimento" HorizontalAlignment="Stretch" Margin="0,10,0,0"/>
+                <Button x:Name="enviarDados" Content="Enviar dados" HorizontalAlignment="Stretch" Margin="0,10,0,0"></Button>
+            </StackPanel>
 
+            <StackPanel Margin="30,0,0,0">
+                <ScrollViewer Height="320" Background="White" BorderBrush="Black" Margin="0,15,0,0">
+                    <RichTextBlock Width="300">
+                        <Paragraph>
+                            <Run Text="## Termos de uso ##
+                                 
+                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae fermentum risus, et tristique ligula. Aliquam erat volutpat. Pellentesque sit amet velit mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent posuere leo eu enim suscipit, sed hendrerit leo scelerisque. Vestibulum luctus pulvinar ullamcorper. Mauris tempor nulla at arcu finibus, eu molestie ante ullamcorper. Pellentesque quis blandit arcu. Aenean nisl diam, consequat ac velit eu, sodales iaculis felis. Sed auctor id dui eu malesuada. Vestibulum at malesuada urna, at bibendum neque. Morbi sit amet tellus in felis tincidunt volutpat. Quisque dui lorem, luctus commodo molestie et, elementum sed nisl. Sed lacinia, nisi nec ultricies auctor, nisi justo elementum nulla, ac placerat lorem diam eu est. Quisque cursus, quam id sollicitudin molestie, sem metus malesuada leo, ac dapibus enim odio sit amet urna.">
+
+                            </Run>
+                        </Paragraph>
+                    </RichTextBlock>
+                </ScrollViewer>
+                <CheckBox Content="Eu aceito os termos de uso"></CheckBox>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
