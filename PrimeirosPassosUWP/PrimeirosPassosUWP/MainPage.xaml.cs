@@ -33,11 +33,13 @@ namespace PrimeirosPassosUWP
 
         private async void EnviarDados_Click(object sender, RoutedEventArgs e)
         {
-            await ValidarCamposObrigatorios();
-            await ValidarEmail();
-            await ValidarAceiteTermosUso();
-
-            Usuario usuario = MontarObjeto();
+            if (await ValidarCamposObrigatorios() &&
+                await ValidarEmail() &&
+                await ValidarAceiteTermosUso())
+            {
+                Usuario usuario = MontarObjeto();
+                Frame.Navigate(typeof(MostrarDados), usuario);
+            }                  
         }
 
         private Usuario MontarObjeto()
@@ -51,7 +53,7 @@ namespace PrimeirosPassosUWP
             return usuario;
         }
 
-        private async Task ValidarCamposObrigatorios()
+        private async Task<bool> ValidarCamposObrigatorios()
         {
             if (string.IsNullOrWhiteSpace(nome.Text) ||
                             string.IsNullOrWhiteSpace(email.Text) ||
@@ -59,28 +61,34 @@ namespace PrimeirosPassosUWP
             {
                 MessageDialog dialog = new MessageDialog("Todos os campos são obrigatórios");
                 await dialog.ShowAsync();
-                return;
+                return false;
             }
+
+            return true;
         }
 
-        private async Task ValidarEmail()
+        private async Task<bool> ValidarEmail()
         {
             if (!Regex.IsMatch(email.Text, @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"))
             {
                 MessageDialog dialog = new MessageDialog("E-mail Inválido");
                 await dialog.ShowAsync();
-                return;
-            }       
+                return false;
+            }
+
+            return true;
         }
 
-        private async Task ValidarAceiteTermosUso()
+        private async Task<bool> ValidarAceiteTermosUso()
         {
             if (!chkTermosUso.IsChecked.GetValueOrDefault())
             {
                 MessageDialog dialog = new MessageDialog("Você deve aceitar os termos de uso");
                 await dialog.ShowAsync();
-                return;
+                return false; 
             }
+
+            return true;
         }
     }
 }

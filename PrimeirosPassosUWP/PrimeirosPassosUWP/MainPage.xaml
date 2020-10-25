@@ -25,7 +25,10 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <ScrollViewer>
+        <StackPanel Height="40" Background="#FF6ED1FF" Margin="0" Padding="0" VerticalAlignment="Top">
+            <TextBlock VerticalAlignment="Center" Height="42" Margin="0" Foreground="White" FontSize="26.667" HorizontalAlignment="Center" Text="Cadastre seus dados"/>
+        </StackPanel>
+        <ScrollViewer Margin="0,42,0,0">
             <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Name="ControlPanel">
                 <StackPanel HorizontalAlignment="Left" >
                     <TextBlock>Nome</TextBlock>
